@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--canvas box-->
+    <canvas id="myCanvas" 
+    width="200" height="100" 
+    style="border:1px solid black">
+    </canvas>
+    <!--fill the box-->
+    <canvas id="myCanvas1" width="200" height="100" 
+    style="border:1px solid black">>  
+    </canvas>
+    <!--draw a line-->
+    <canvas id="myCanvas2" width="200" height="100" 
+    style="border:1px solid black">  
+    </canvas>
+    <!--draw a circle-->
+    <canvas id="myCanvas3" width="200" height="100" 
+    style="border:1px solid black">  
+    </canvas>
+    <!--draw a triangle-->
+    <canvas id="myCanvas4" width="200" height="100" 
+    style="border:1px solid black">  
+    </canvas>
+    <!--draw a triangle inside a rectangle-->
+    <canvas id="myCanvas5" width="200" height="100" 
+    style="border:1px solid black">  
+    </canvas>
+    <!--draw multiple and multi color rectangle-->
+    <canvas id="myCanvas6" width="200" height="100" 
+    style="border:1px solid black">  
+    </canvas>
+    <!--draw a curve lower-->
+    <canvas id="myCanvas7" width="200" height="100" 
+    style="border:1px solid black">  
+    </canvas>
+    <!--draw a curve upper-->
+    <canvas id="myCanvas8" width="200" height="100" 
+    style="border:1px solid black">  
+    </canvas>
+    <!--draw a gradient-->
+    <canvas id="myCanvas9" width="200" height="100" 
+    style="border:1px solid black">  
+    </canvas>
+    <!--draw a text-->
+    <canvas id="myCanvas10" width="200" height="100" 
+    style="border:1px solid black">  
+    </canvas>
+    <!--canvas image-->
+    <img id="scream" width="200" height="100" 
+    src="images/bg-1.png" alt="The Scream" style="border:1px solid grey;">
+    <!--<canvas id="myCanvas11" width="200" height="100" 
+    style="border:1px solid grey;">
+    <img src="bg-1.png" alt="">
+    </canvas>-->
+    
+<script>
+    //fill the box
+    const canvas = document.getElementById("myCanvas1");
+    const ctx = canvas.getContext("2d");
+    ctx.fillStyle = "red";
+    ctx.fillRect(25, 10, 150, 75);
+
+    //draw a line
+    const canvas1 = document.getElementById("myCanvas2");
+    const ctx1 = canvas1.getContext("2d");
+    ctx1.moveTo(0, 0);
+    ctx1.lineTo(200, 100);
+    ctx1.lineWidth = 10;
+    ctx1.strokeStyle = "red";
+    ctx.lineCap = "round";
+    ctx1.stroke();
+
+    //draw a circle
+    const canvas2 = document.getElementById("myCanvas3");
+    const ctx2 = canvas2.getContext("2d");
+    ctx2.beginPath();
+    ctx2.arc(95, 50, 40, 0, 2 * Math.PI);
+    ctx2.stroke();
+
+    //draw a triangle
+    const canvas3 = document.getElementById("myCanvas4");
+    const ctx3 = canvas3.getContext("2d");
+    ctx3.beginPath();
+    ctx3.moveTo(100,20);
+    ctx3.lineTo(175,100);
+    ctx3.lineTo(20,100);
+    ctx3.lineTo(100,20);
+    ctx3.stroke();
+
+    //draw a triangle inside a rectangle
+    const canvas4 = document.getElementById("myCanvas5");
+    const ctx4 = canvas4.getContext("2d");
+    ctx3.beginPath();
+    //define a rectangle
+    ctx4.moveTo(20,20);
+    ctx4.lineTo(175,20);
+    ctx4.lineTo(175,100);
+    ctx4.lineTo(20,100);
+    ctx4.lineTo(20,20);
+    //define a triangle
+    ctx4.moveTo(100,20);
+    ctx4.lineTo(175,100);
+    ctx4.lineTo(20,100);
+    ctx4.lineTo(100,20);
+    ctx4.strokeStyle = "red";
+    ctx4.stroke();
+    
+    //draw multiple and multi color rectangle
+    const canvas5 = document.getElementById("myCanvas6");
+    const ctx5 = canvas5.getContext("2d");
+    //red rectangle
+    ctx5.beginPath();
+    ctx5.lineWidth = "6";
+    ctx5.strokeStyle = "red";
+    ctx5.rect(5, 5, 190, 90);
+    ctx5.stroke();
+    //green rectangle
+    ctx5.beginPath();
+    ctx5.lineWidth = "4";
+    ctx5.strokeStyle = "green";
+    ctx5.rect(30, 30, 50, 50);
+    ctx5.stroke();
+    //blue rectangle
+    ctx5.beginPath();
+    ctx5.lineWidth = "5";
+    ctx5.strokeStyle = "blue";
+    ctx5.rect(40, 40, 150, 50);
+    ctx5.stroke();
+    
+    //draw a curve lower
+    const canvas6 = document.getElementById("myCanvas7");
+    const ctx6 = canvas6.getContext("2d");
+    ctx6.beginPath();
+    ctx6.arc(100, 50, 50, 0, Math.PI);
+    ctx6.stroke();
+
+    //draw a curve upper
+    const canvas7 = document.getElementById("myCanvas8");
+    const ctx7 = canvas7.getContext("2d");
+    ctx7.beginPath();
+    ctx7.arc(95, 50, 50, 3, 2 * Math.PI);
+    ctx7.stroke();
+
+    //draw a gradient
+    const canvas8 = document.getElementById("myCanvas9");
+    const ctx8 = canvas8.getContext("2d");
+    //create gradient
+    const grd = ctx8.createRadialGradient(75, 50, 5, 90, 60, 100);
+    grd.addColorStop(0, "red");
+    grd.addColorStop(1, "white");
+    //fill with gradient
+    ctx8.fillStyle = grd;
+    ctx8.fillRect(10, 10, 150, 80);
+
+    //draw a text
+    const canvas9 = document.getElementById("myCanvas10");
+    const ctx9 = canvas9.getContext("2d");
+    ctx9.font = "30px Comic Sans MS";
+    ctx9.fillStyle = "red";
+    ctx9.textAlign = "center";
+    ctx9.fillText("Hello World", canvas.width/2, canvas.height/2);
+
+    //canvas image
+    /*window.onload = function() {
+    const canvas10 = document.getElementById("myCanvas11");
+    const ctx10 = canvas10.getContext("2d");
+    const img = document.getElementById("scream");
+    ctx10.drawImage(img, 10, 10);
+    };*/
+</script>
+</body>
+</html>
